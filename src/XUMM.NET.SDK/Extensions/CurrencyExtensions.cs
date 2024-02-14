@@ -48,7 +48,7 @@ public static class CurrencyExtensions
             var decoded = Encoding.UTF8.GetString(bytes);
             if (decoded.Length > maxLength)
             {
-                decoded = decoded[..maxLength];
+                decoded = decoded.Substring(0, maxLength);
             }
 
             if (RgxDecodedHex.IsMatch(decoded) && !currency.ToUpper().Equals(XRP))

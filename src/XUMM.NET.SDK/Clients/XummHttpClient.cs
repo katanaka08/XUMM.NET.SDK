@@ -186,7 +186,7 @@ public class XummHttpClient : IXummHttpClient
     private string GetRequestUrl(string endpoint)
     {
         var result = _config.RestClientAddress;
-        if (!result.EndsWith('/'))
+        if (!result.EndsWith("/"))
         {
             result += "/";
         }
