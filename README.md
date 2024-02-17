@@ -35,3 +35,5 @@ This modification project is incomplete.
 The build for platforms such as Android passes, but a problem occurs in the DI constructor and it does not work.
 
 Currently, it has only been confirmed to work with Unity Editor or Standalone builds.
+
+If you can fix the constructor error in the dependency injection class in AddXummNetClients() in XummNetStartup.cs, you might be able to run it on Android and iOS platforms.
