@@ -5,6 +5,7 @@ using System.Net.WebSockets;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
 namespace XUMM.NET.SDK.WebSocket;
@@ -37,7 +38,7 @@ public class XummWebSocket : IXummWebSocket
 
             while (webSocket.State == WebSocketState.Open)
             {
-                await using var ms = new MemoryStream();
+                await using var ms = new MyMemoryStreamWrapper();
                 WebSocketReceiveResult? result;
 
                 try
@@ -59,4 +60,31 @@ public class XummWebSocket : IXummWebSocket
             }
         }
     }
+}
+public class MyMemoryStreamWrapper : IAsyncDisposable
+{
+    private readonly MemoryStream _memoryStream;
+
+    public MyMemoryStreamWrapper()
+    {
+        _memoryStream = new MemoryStream();
+    }
+
+    // Implement IAsyncDisposable
+    public async ValueTask DisposeAsync()
+    {
+        _memoryStream.Dispose();
+    }
+
+    public void Write(byte[] buffer, int offset, int count)
+    {
+        _memoryStream.Write(buffer, offset, count);
+    }
+
+    public long Seek(long offset, SeekOrigin origin)
+    {
+        return _memoryStream.Seek(offset, origin);
+    }
+
+    // Other methods and properties as needed
 }

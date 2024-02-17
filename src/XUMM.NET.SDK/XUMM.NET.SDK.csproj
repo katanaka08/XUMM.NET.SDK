@@ -1,7 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net7.0;net6.0;net5.0;netcoreapp3.1</TargetFrameworks>
-    <LangVersion>12.0</LangVersion>
+    <LangVersion>11</LangVersion>
     <Nullable>enable</Nullable>
     <Authors>Dominique Blomsma</Authors>
     <Description>XUMM .NET SDK - Interact with the XUMM Developer API the easy way</Description>
@@ -29,6 +28,7 @@
     <AssemblyVersion>$(PackageVersion)</AssemblyVersion>
     <AssemblyFileVersion>$(PackageVersion)</AssemblyFileVersion>
     <AssemblyInformationalVersion>$(PackageVersion)</AssemblyInformationalVersion>
+    <TargetFramework>net48</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -51,6 +51,8 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="$(ComponentsPackageVersion)" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="$(ComponentsPackageVersion)" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(ComponentsPackageVersion)" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
   </ItemGroup>
 
 </Project>
