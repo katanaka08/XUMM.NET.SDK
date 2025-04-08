@@ -353,3 +353,5 @@ MigrationBackup/
 /examples/XUMM.NET.ServerApp/appsettings.Development.json
 /examples/XUMM.NET.ServerApp/Properties/ServiceDependencies/
 /examples/XUMM.NET.WebApp/appsettings.Development.json
+src/.idea
+src/XUMM.NET.SDK/.idea
